@@ -41,32 +41,28 @@ const Gallery = () => {
     fetchCategory();
   }, []);
 
-
   /*------Product list after the click on the button ----------*/
-   useEffect(() => {
-
-
-    
-
+  useEffect(() => {
     const fetchProductList = async () => {
       try {
-       if(productName){
-        const response = await fetch(`https://dummyjson.com/products/category/${productName}`);
-        const json = await response.json();
+        if (productName) {
+          const response = await fetch(
+            `https://dummyjson.com/products/category/${productName}`
+          );
+          const json = await response.json();
 
-        setProductList(json.products);
-       }
-    } catch (error) {
+          setProductList(json.products);
+        }
+      } catch (error) {
         console.log("error", error);
       }
     };
 
     fetchProductList();
   }, [productName]);
- 
 
   function selectProduct(item) {
-    console.log(item)
+    console.log(item);
     setProductName(item);
     console.log(productName);
   }
@@ -128,21 +124,17 @@ const Gallery = () => {
         </div>
       </>
       <>
-       <div className=" flex  shadow-lg gap-3 mt-3">
-         {
-            productList.map((itet, id)=>(
-                <div key={id} className="border-4 mb-4" >
-                <img src={itet.thumbnail} alt=""/>
-                    <p>Title: {itet.title}</p>
-                    <p>Ratings: {itet.rating}</p>
-                    <p>Price: {itet.price}</p>
-                </div>
-            )) 
-         }
-       </div>
+        <div className=" flex  shadow-lg gap-3 mt-3">
+          {productList.map((itet, id) => (
+            <div key={id} className="border-4 mb-4">
+              <img src={itet.thumbnail} alt="" />
+              <p>Title: {itet.title}</p>
+              <p>Ratings: {itet.rating}</p>
+              <p>Price: {itet.price}</p>
+            </div>
+          ))}
+        </div>
       </>
-
-     
     </>
   );
 };
