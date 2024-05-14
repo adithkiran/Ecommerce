@@ -2,13 +2,13 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-    <div className="border bg-blue-800 mt-0 h-[50px] flex justify-between items-center">
-    <div className="">
-        <h4 className="font-bold m-3 text-white">Footer</h4>
-    </div>
+    
+    <div className=" bg-blue-800 mt-5 h-[50px] ">
+   
+        <h4 className="font-bold justify-center px-4 py-2   text-center text-2xl text-white">Footer</h4>
+   
    </div>
-    </div>
+    
     
    
   )
